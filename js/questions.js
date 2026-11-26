@@ -151,15 +151,33 @@ const RAW = [
  ["history","hard","By tradition, Bishop Germanos raised the banner of the 1821 revolution at which monastery?",["Agia Lavra","Great Lavra","Kykkos","Meteora"]]
 ,
  ["icons","easy","Which feast does this icon show?",["The Nativity of Christ","Theophany","The Annunciation","The Presentation in the Temple"],{img:"Nativity (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon by Andrei Rublev's circle, 15th c. · public domain · Wikimedia Commons"}],
- ["icons","med","Which feast does this icon show?",["Theophany","The Transfiguration","Pentecost","The Nativity of Christ"],{img:"Baptism (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon, Annunciation Cathedral, Moscow, 15th c. · public domain · Wikimedia Commons"}],
- ["icons","med","Which feast does this icon show?",["The Transfiguration","The Ascension","Theophany","Pentecost"],{img:"Transfiguration (Annunciation Cathedral, Kremlin).jpg",cr:"Icon, Annunciation Cathedral, Moscow, 1405 · public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["Theophany","The Transfiguration","Pentecost","The Nativity of Christ"],{img:"Baptism (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon, Kremlin, Moscow, 15th c. · public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["The Transfiguration","The Ascension","Theophany","Pentecost"],{img:"Transfiguration (Annunciation Cathedral, Kremlin).jpg",cr:"Icon, Kremlin, Moscow, 1405 · public domain · Wikimedia Commons"}],
  ["icons","med","Which feast does this icon show?",["Pentecost","The Ascension","The Dormition","Palm Sunday"],{img:"The Descent of the Holy Spirit Novgorod.jpeg",cr:"Icon, Novgorod, c. 1500 · public domain · Wikimedia Commons"}],
- ["icons","med","Which feast does this icon show?",["Pascha (the Resurrection)","The Ascension","The Transfiguration","Holy Friday"],{img:"Chora Church Constantinople 2007 013.jpg",cr:"Anastasis fresco, Chora Church · photo: Gryffindor, public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["Pascha (the Resurrection)","The Ascension","The Transfiguration","Holy Friday"],{img:"Chora Church Constantinople 2007 013.jpg",cr:"Fresco, Chora Church, Istanbul · photo: Gryffindor, public domain · Wikimedia Commons"}],
  ["icons","hard","Which feast does this icon show?",["The Dormition of the Theotokos","The Nativity of the Theotokos","The Annunciation","The Entry of the Theotokos"],{img:"Theofanus uspenie.jpg",cr:"Icon by Theophanes the Greek, c. 1392 · public domain · Wikimedia Commons"}],
- ["icons","med","This famous icon shows three angels visiting Abraham. What does it represent?",["The Holy Trinity","The Annunciation","The Three Holy Hierarchs","The Three Wise Men"],{img:"Andrey Rublev - Св. Троица - Google Art Project.jpg",cr:"Trinity icon by Andrei Rublev, c. 1410 · public domain · Wikimedia Commons"}]
+ ["icons","med","This famous icon shows three angels visiting Abraham. What does it represent?",["The Holy Trinity","The Annunciation","The Three Holy Hierarchs","The Three Wise Men"],{img:"Andrey Rublev - Св. Троица - Google Art Project.jpg",cr:"Icon by Andrei Rublev, c. 1410 · public domain · Wikimedia Commons"}]
 ];
 // Pictures for existing questions: question text → [Wikimedia Commons file, credit]
 export const IMG_FOR = {
+ "Which apostle denied Jesus three times?": ["Saint Peter-Sinai (6th Century) Crop.jpg", "Sinai icon, 6th–7th c. · public domain · Wikimedia Commons"],
+ "The First Ecumenical Council met in which city?": ["First Council of Nicea (icon).jpg", "Russian icon, 18th c. · public domain · Wikimedia Commons"],
+ "In what year did the First Ecumenical Council meet?": ["First Council of Nicea (icon).jpg", "Russian icon, 18th c. · public domain · Wikimedia Commons"],
+ "The First Ecumenical Council condemned the teaching of…": ["First Council of Nicea (icon).jpg", "Russian icon, 18th c. · public domain · Wikimedia Commons"],
+ "The First Sunday of Great Lent celebrates…": ["Triumph of Orthodoxy by E.Tzanfournaris.jpg", "Icon by Emmanuel Tzanfournaris, c. 1600 · public domain · Wikimedia Commons"],
+ "The Seventh Ecumenical Council (787) defended…": ["Triumph of Orthodoxy by E.Tzanfournaris.jpg", "Icon by Emmanuel Tzanfournaris, c. 1600 · public domain · Wikimedia Commons"],
+ "By tradition, Bishop Germanos raised the banner of the 1821 revolution at which monastery?": ["Βρυζάκης, Θεόδωρος - Ο Παλαιών Πατρών Γερμανός ευλογεί τη σημαία της Επανάστασης, 1865.jpg", "Painting by Theodoros Vryzakis, 1865 · public domain · Wikimedia Commons"],
+ "How many days had Lazarus been in the tomb when Jesus raised him?": ["The Lazarus Raising. Novgorod icon-painting school, 15th cent., Kirillo-Belozersky Monastery. Saint-Petersburg, Russia.jpg", "Icon, Novgorod school, 15th c. · public domain · Wikimedia Commons"],
+ "The sisters of Lazarus were Mary and…": ["The Lazarus Raising. Novgorod icon-painting school, 15th cent., Kirillo-Belozersky Monastery. Saint-Petersburg, Russia.jpg", "Icon, Novgorod school, 15th c. · public domain · Wikimedia Commons"],
+ "Who found the True Cross in Jerusalem?": ["Konstantin & Helena.jpg", "Icon by Nikolla Onufri, 16th c. · public domain · Wikimedia Commons"],
+ "Which emperor, honoured as Equal to the Apostles, made Christianity legal?": ["Konstantin & Helena.jpg", "Icon by Nikolla Onufri, 16th c. · public domain · Wikimedia Commons"],
+ "The Elevation of the Holy Cross is celebrated on…": ["Konstantin & Helena.jpg", "Icon by Nikolla Onufri, 16th c. · public domain · Wikimedia Commons"],
+ "Which apostle doubted the Resurrection until he touched Christ's wounds?": ["Incredulity of Saint Thomas,, Early XIV Century, St Mary Perivleptos Church, Ohrid Icon Gallery.jpg", "Icon, Ohrid, early 14th c. · public domain · Wikimedia Commons"],
+ "The Sunday after Pascha is named after which apostle?": ["Incredulity of Saint Thomas,, Early XIV Century, St Mary Perivleptos Church, Ohrid Icon Gallery.jpg", "Icon, Ohrid, early 14th c. · public domain · Wikimedia Commons"],
+ "Which saint lived for decades on top of a pillar?": ["Simeon Stylites icon 1465.jpg", "Icon, 1465 · public domain · Wikimedia Commons"],
+ "Which brothers brought Christianity and an alphabet to the Slavs?": ["Stanislav Dospavski - Saints Cyril and Methodius.png", "Painting by Stanislav Dospevski, 1860 · public domain · Wikimedia Commons"],
+ "Constantinople fell to the Ottomans in…": ["Le siège de Constantinople (1453) by Jean Le Tavernier after 1455.jpg", "Miniature by Jean Le Tavernier, 15th c. · public domain · Wikimedia Commons"],
+ "Which saint is called the father of monasticism?": ["Saint Anthony the Great icon (16th century).jpg", "Icon, 16th c. · public domain · Wikimedia Commons"],
  "Which saint is shown on horseback slaying a dragon?": ["S.George (Novgorod, mid. 14 c, GTG).jpg", "Icon, Novgorod, 14th c. · public domain · Wikimedia Commons"],
  "Which saint secretly gave gifts and is the patron of children and sailors?": ["Nikola from 1294.jpg", "Icon by Aleksa Petrov, 1294 · public domain · Wikimedia Commons"],
  "\"Pantocrator\" means…": ["Spas vsederzhitel sinay (cropped).jpg", "Sinai icon, 6th c. · public domain · Wikimedia Commons"],
