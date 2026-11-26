@@ -148,18 +148,26 @@ const RAW = [
  ["history","hard","Constantinople fell to the Ottomans in…",["1453","1204","1054","1821"]],
  ["history","hard","Which emperor built today's Hagia Sophia?",["Justinian","Constantine","Theodosius","Basil II"]],
  ["history","hard","The Meteora monasteries sit on rock pillars in which region of Greece?",["Thessaly","Crete","Peloponnese","Thrace"]],
- ["history","hard","By tradition, Bishop Germanos raised the banner of the 1821 revolution at which monastery?",["Agia Lavra","Great Lavra","Kykkos","Meteora"]]
-,
+ ["history","hard","By tradition, Bishop Germanos raised the banner of the 1821 revolution at which monastery?",["Agia Lavra","Great Lavra","Kykkos","Meteora"]],
  ["icons","easy","Which feast does this icon show?",["The Nativity of Christ","Theophany","The Annunciation","The Presentation in the Temple"],{img:"Nativity (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon by Andrei Rublev's circle, 15th c. · public domain · Wikimedia Commons"}],
  ["icons","med","Which feast does this icon show?",["Theophany","The Transfiguration","Pentecost","The Nativity of Christ"],{img:"Baptism (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon, Kremlin, Moscow, 15th c. · public domain · Wikimedia Commons"}],
  ["icons","med","Which feast does this icon show?",["The Transfiguration","The Ascension","Theophany","Pentecost"],{img:"Transfiguration (Annunciation Cathedral, Kremlin).jpg",cr:"Icon, Kremlin, Moscow, 1405 · public domain · Wikimedia Commons"}],
  ["icons","med","Which feast does this icon show?",["Pentecost","The Ascension","The Dormition","Palm Sunday"],{img:"The Descent of the Holy Spirit Novgorod.jpeg",cr:"Icon, Novgorod, c. 1500 · public domain · Wikimedia Commons"}],
  ["icons","med","Which feast does this icon show?",["Pascha (the Resurrection)","The Ascension","The Transfiguration","Holy Friday"],{img:"Chora Church Constantinople 2007 013.jpg",cr:"Fresco, Chora Church, Istanbul · photo: Gryffindor, public domain · Wikimedia Commons"}],
  ["icons","hard","Which feast does this icon show?",["The Dormition of the Theotokos","The Nativity of the Theotokos","The Annunciation","The Entry of the Theotokos"],{img:"Theofanus uspenie.jpg",cr:"Icon by Theophanes the Greek, c. 1392 · public domain · Wikimedia Commons"}],
- ["icons","med","This famous icon shows three angels visiting Abraham. What does it represent?",["The Holy Trinity","The Annunciation","The Three Holy Hierarchs","The Three Wise Men"],{img:"Andrey Rublev - Св. Троица - Google Art Project.jpg",cr:"Icon by Andrei Rublev, c. 1410 · public domain · Wikimedia Commons"}]
+ ["icons","med","This famous icon shows three angels visiting Abraham. What does it represent?",["The Holy Trinity","The Annunciation","The Three Holy Hierarchs","The Three Wise Men"],{img:"Andrey Rublev - Св. Троица - Google Art Project.jpg",cr:"Icon by Andrei Rublev, c. 1410 · public domain · Wikimedia Commons"}],
+ ["liturgy","easy","This cup holds Holy Communion at the Divine Liturgy. What is it called?",["The chalice", "The censer", "The diskos", "The kandili"],{img:"The Attarouthi Treasure - Chalice MET DP252277.jpg",cr:"Byzantine silver, 6th–7th c. · The Met · CC0 · Wikimedia Commons"}],
+ ["liturgy","med","These painted doors stand in the middle of the iconostasis. What are they called?",["The Royal (Beautiful) Doors", "The Deacon's Doors", "The Narthex Doors", "The Golden Gate"],{img:"Royal doors with Annunciation, school of Andreas Ritzos (15-16th c., Pushkin museum).jpg",cr:"Cretan school of Andreas Ritzos, 15th–16th c. · public domain · Wikimedia Commons"}],
+ ["liturgy","med","A stamp like this presses a holy seal into which bread?",["Prosphora", "Vasilopita", "Tsoureki", "Lagana"],{img:"Byzantine Bread Stamp.jpg",cr:"Byzantine bronze stamp, 6th–10th c. · photo: Fred Cherrygarden · CC BY-SA 4.0 · Wikimedia Commons"}],
+ ["icons","med","This knotted cord is used to pray the Jesus Prayer. What is it called in Greek?",["Komboskini", "Komboloi", "Stefana", "Martyrika"],{img:"Eastern-Orthodox-prayer-rope 2006-06-02.jpg",cr:"Photo: Daniel Tibi · public domain · Wikimedia Commons"}],
+ ["icons","easy","Which feast does this icon show?",["Palm Sunday", "Pentecost", "The Ascension", "Theophany"],{img:"Palm Sunday Tver 15th c.jpg",cr:"Icon, Tver, 15th c. · public domain · Wikimedia Commons"}],
+ ["scripture","easy","Who is receiving the tablets of the Law in this icon?",["Moses", "Elijah", "Abraham", "King David"],{img:"Moses sinai law.jpg",cr:"Byzantine icon · public domain · Wikimedia Commons"}],
+ ["saints","med","Saints like the two in this icon lived on top of pillars. What are they called?",["Stylites", "Desert Fathers", "Fools for Christ", "Unmercenaries"],{img:"Simeon Stylites the Elder and Simeon Stylites the Younger, 1699.jpg",cr:"Icon by Neemah al-Musawwir, 1699 · public domain · Wikimedia Commons"}],
+ ["saints","hard","This Cretan icon shows a desert saint, the father of monks. Who is he?",["St Anthony the Great", "St Simeon the Stylite", "St John the Baptist", "St Elijah"],{img:"Saint Anthony (Damaskinos).png",cr:"Icon by Michael Damaskinos, 16th c. · public domain · Wikimedia Commons"}],
 ];
 // Pictures for existing questions: question text → [Wikimedia Commons file, credit]
 export const IMG_FOR = {
+ "The wall of icons in front of the altar is called the…": ["Iconostasis in St. Andrew's Church.JPG", "St Andrew's Church, Kyiv · photo: DiscoverWithDima · CC BY-SA 4.0 · Wikimedia Commons"],
  "Which apostle denied Jesus three times?": ["Saint Peter-Sinai (6th Century) Crop.jpg", "Sinai icon, 6th–7th c. · public domain · Wikimedia Commons"],
  "The First Ecumenical Council met in which city?": ["First Council of Nicea (icon).jpg", "Russian icon, 18th c. · public domain · Wikimedia Commons"],
  "In what year did the First Ecumenical Council meet?": ["First Council of Nicea (icon).jpg", "Russian icon, 18th c. · public domain · Wikimedia Commons"],
