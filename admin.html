@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Reel Faith · Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Russo+One&family=Playfair+Display:wght@800;900&family=DM+Sans:wght@400;600;800&family=Roboto:wght@400;500;700;900&family=Montserrat:wght@600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>.lg-words,.lg-art,.bg-wide{display:none}</style>
+<link rel="stylesheet" href="css/style.css?v=1795660000">
+</head>
+<body>
+<div class="bg photo faithbg" aria-hidden="true"></div>
+<div class="wrap">
+ <header class="marquee"><div class="bulbs" id="bulbs"></div>
+  <h1 class="logo" aria-label="Reel Faith"><span class="lg-reel">Reel</span><svg class="lg-cross" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#b8862b"/></linearGradient></defs><path d="M17 1h6v9h7V6h4v10h-4v-2h-7v25h-6V14h-7v2H6V6h4v4h7z" fill="url(#cg)"/><circle cx="20" cy="4" r="3.5" fill="url(#cg)"/><circle cx="20" cy="37" r="3" fill="url(#cg)"/><circle cx="4" cy="11" r="3" fill="url(#cg)"/><circle cx="36" cy="11" r="3" fill="url(#cg)"/></svg><span class="lg-faith">FAITH</span></h1>
+  <p>Admin</p></header>
+ <section class="stage">
+  <div class="meta"><span>Admin</span><a class="ghost exit btnlink" href="./">Back to the game</a></div>
+  <div class="tabs" id="tabPick">
+   <button type="button" class="pill" data-v="add" aria-pressed="true">Add a new clip</button>
+   <button type="button" class="pill" data-v="have" aria-pressed="false">Clips in the game</button>
+  </div>
+
+  <div id="tab-add">
+   <h2>Add a new clip</h2>
+   <p class="lockmsg">Changes are saved in GitHub, so they're protected by your GitHub sign-in and its Authenticator code. Nobody else can change the game.</p>
+   <label>Video clip</label>
+   <div class="row"><label class="up" style="margin:0">Choose a clip<input type="file" accept="video/*" id="aFile"></label><span id="aFileName" class="status" style="margin:0"></span></div>
+   <video id="aPrev" controls playsinline class="hide" style="width:100%;max-height:260px;background:#000;border-radius:10px;margin-top:10px"></video>
+   <label for="aTitle">What does the clip show?</label>
+   <input type="text" id="aTitle" maxlength="80" placeholder="e.g. The Great Entrance, Icon of the Transfiguration" style="width:100%">
+   <label>Topic</label>
+   <div class="row" id="aKind"><button type="button" class="pill" data-v="scripture" aria-pressed="false">Scripture</button><button type="button" class="pill" data-v="saints" aria-pressed="false">Saints &amp; Fathers</button><button type="button" class="pill" data-v="liturgy" aria-pressed="true">Liturgy &amp; Feasts</button><button type="button" class="pill" data-v="history" aria-pressed="false">Church History</button><button type="button" class="pill" data-v="icons" aria-pressed="false">Icons &amp; Traditions</button></div>
+   <label>Difficulty</label>
+   <div class="row" id="aLevel"><button type="button" class="pill" data-v="easy" aria-pressed="false">Easy</button><button type="button" class="pill" data-v="medium" aria-pressed="true">Medium</button><button type="button" class="pill" data-v="hard" aria-pressed="false">Hard</button></div>
+   <div class="rcard"><label class="check" style="margin:0"><input type="checkbox" id="aScene" checked><b>Watch &amp; name</b></label>
+    <div id="sceneFields"><div class="status" style="margin:0 0 6px">"What does this clip show?" The answer above is the right one. Add three wrong ones:</div>
+    <input type="text" id="dis0" maxlength="80" placeholder="Wrong answer 1"><input type="text" id="dis1" maxlength="80" placeholder="Wrong answer 2"><input type="text" id="dis2" maxlength="80" placeholder="Wrong answer 3"></div></div>
+   <div id="hardCards"></div>
+   <button class="ghost" id="addHard" style="margin-top:12px">+ Add a Clip challenge question</button>
+   <button class="start" id="build">Get it ready for GitHub</button>
+   <p class="status" id="aStatus" aria-live="polite"></p>
+
+   <div id="steps" class="hide">
+    <h3>Three steps to publish it</h3>
+    <div class="rcard"><h4>1. Upload the clip</h4>
+     <p style="margin:0 0 8px">Name the file <b class="secret" id="fname"></b> and drop it into the <b>clips</b> folder on GitHub.</p>
+     <a class="btnlink up" id="upLink" target="_blank" rel="noopener">Open the clips upload page</a></div>
+    <div class="rcard"><h4>2. Add the questions</h4>
+     <p style="margin:0 0 8px">Copy this and open <b>data/custom.json</b>. If the file is just <code>[]</code>, put this between the brackets. Otherwise type a comma after the last <code>}</code> and paste this before the final <code>]</code>.</p>
+     <pre class="secret" id="json" style="white-space:pre-wrap;max-height:260px;overflow:auto"></pre>
+     <div class="row"><button id="copy">Copy</button><a class="btnlink up ghost" id="editLink" target="_blank" rel="noopener">Open custom.json to edit</a></div></div>
+    <div class="rcard"><h4>3. Commit</h4><p style="margin:0">Click <b>Commit changes</b> on GitHub. The site updates in about a minute.</p></div>
+   </div>
+  </div>
+
+  <div id="tab-have" class="hide">
+   <h2>Clips in the game</h2>
+   <p>Built-in questions with a clip attached, plus clips you've added. To attach a clip to another built-in question, upload it to <b>clips</b> and add a line to <b>data/clips.json</b> (or just send it to Claude).</p>
+   <div id="haveList" class="alist"><p class="note">Loading…</p></div>
+  </div>
+ </section>
+</div>
+<script type="module" src="js/admin.js?v=1795472675"></script>
+</body>
+</html>
