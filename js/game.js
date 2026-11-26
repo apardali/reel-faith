@@ -1,6 +1,6 @@
-import { t, setLang, getLang, applyStatic, LANGS } from "./i18n.js?v=1795650000";
+import { t, setLang, getLang, applyStatic, LANGS } from "./i18n.js?v=1795680000";
 import { music } from "./music.js?v=1795562294";
-import { Q, TOPICS } from "./questions.js?v=1795650000";
+import { Q, TOPICS } from "./questions.js?v=1795680000";
 
 const slug = s => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 80);
 Q.forEach(q => q.id = slug(q.c + "-" + q.o[q.a]));
@@ -164,7 +164,7 @@ function paintQuestion(q, label, turnText, tiles) {
   $("result").textContent = ""; $("nextBtn").classList.add("hide");
   const c = hasClip(q) ? clips[ck(q)] : null;
   if (c) {
-    $("emoji").classList.add("hide"); $("screen").classList.remove("hide"); $("answerArea").classList.add("hide"); $("revealBtn").classList.remove("hide");
+    $("emoji").classList.add("hide"); $("pic").classList.add("hide"); $("screen").classList.remove("hide"); $("answerArea").classList.add("hide"); $("revealBtn").classList.remove("hide");
     media.load(c);
     $("qtext").textContent = t("Watch the clip…");
     // The question shows after 2 s; the answers pop up once most of the clip has played
@@ -175,7 +175,18 @@ function paintQuestion(q, label, turnText, tiles) {
     return true;
   }
   stopVideo(); $("screen").classList.add("hide"); $("revealBtn").classList.add("hide");
+  showPic(q);
   $("emoji").textContent = q.e || ""; $("emoji").classList.toggle("hide", !q.e); return false;
+}
+// Question pictures: icons and photos from Wikimedia Commons, loaded straight from Commons with their credit shown underneath.
+// If a picture can't load, the question simply shows without it.
+const COMMONS = f => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(f.replace(/ /g, "_")) + "?width=900";
+function showPic(q) {
+  const fig = $("pic"), img = $("picImg");
+  if (!q.img) { fig.classList.add("hide"); img.removeAttribute("src"); return }
+  img.onerror = () => fig.classList.add("hide");
+  img.src = COMMONS(q.img); $("picCap").textContent = q.cr || "";
+  fig.classList.remove("hide");
 }
 function stopVideo() { media.stop() }
 function startTimer(onTick, onEnd) {
@@ -432,7 +443,7 @@ function buildState() {
   const q = deck[H.i];
   const st = { code: H.code, rid: H.rid, phase: H.phase, i: H.i, total: deck.length, lang: getLang(),
     players: [...H.players.values()].map(p => ({ k: p.k, n: p.n, s: p.s, a: p.k in H.answers, g: (H.gains[p.k] || {}).g || 0, r: !!(H.gains[p.k] || {}).r })) };
-  if (q && (st.phase === "answer" || st.phase === "reveal" || st.phase === "watch")) { st.q = { c: q.c, q: q.q, o: q.o }; if (st.phase === "reveal") st.correct = q.a }
+  if (q && (st.phase === "answer" || st.phase === "reveal" || st.phase === "watch")) { st.q = { c: q.c, q: q.q, o: q.o, pic: q.img ? 1 : 0 }; if (st.phase === "reveal") st.correct = q.a }
   return st;
 }
 function sendState(conn) { if (!H) return; try { conn.send({ t: "state", st: buildState() }) } catch (e) { } }
@@ -498,7 +509,7 @@ function renderPhone() {
   P.sig = sig;
   if (st.phase === "answer") {
     if (mine != null) { b.innerHTML = head + `<div class="pgrid2">${st.q.o.map((o, i) => `<button class="pb L${i} ${i === mine ? "pick" : "faded"}" disabled><i>${LET[i]}</i>${esc(t(o))}</button>`).join("")}</div>` + msg(t("Locked in!"), t("Waiting for everyone else.")); return }
-    b.innerHTML = head + `<div class="q" style="margin-top:8px">${esc(t(st.q.q))}</div><div class="pgrid2">${st.q.o.map((o, i) => `<button class="pb L${i}" data-c="${i}"><i>${LET[i]}</i>${esc(t(o))}</button>`).join("")}</div>`;
+    b.innerHTML = head + `<div class="q" style="margin-top:8px">${esc(t(st.q.q))}</div>${st.q.pic ? `<div class="note" style="margin:4px 0 0">${esc(t("Look at the picture on the TV."))}</div>` : ""}<div class="pgrid2">${st.q.o.map((o, i) => `<button class="pb L${i}" data-c="${i}"><i>${LET[i]}</i>${esc(t(o))}</button>`).join("")}</div>`;
     return;
   }
   if (st.phase === "reveal") {

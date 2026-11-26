@@ -1,10 +1,11 @@
 // Interface translations. Question and option translations live in q-<lang>.js.
-import QEL from "./q-el.js?v=1795650000";
-import QPT from "./q-pt.js?v=1795650000";
+import QEL from "./q-el.js?v=1795680000";
+import QPT from "./q-pt.js?v=1795680000";
 const QD = { el: QEL, pt: QPT };
 export const LANGS = [["en", "English"], ["el", "Ελληνικά"], ["es", "Español"], ["fr", "Français"], ["pt", "Português"]];
 const D = {
 "el": {
+"Look at the picture on the TV.": "Κοιτάξτε την εικόνα στην τηλεόραση.",
 "Greek Orthodox trivia night": "Βραδιά ορθόδοξου κουίζ",
 "Scripture": "Αγία Γραφή",
 "Saints & Fathers": "Άγιοι & Πατέρες",
@@ -149,6 +150,7 @@ const D = {
 "Language": "Γλώσσα"
 },
 "es": {
+"Look at the picture on the TV.": "Mira la imagen en la TV.",
 "Greek Orthodox trivia night": "Noche de preguntas ortodoxas",
 "Scripture": "Sagrada Escritura",
 "Saints & Fathers": "Santos y Padres",
@@ -293,6 +295,7 @@ const D = {
 "Language": "Idioma"
 },
 "fr": {
+"Look at the picture on the TV.": "Regardez l'image à la télé.",
 "Greek Orthodox trivia night": "Soirée quiz orthodoxe",
 "Scripture": "Écriture sainte",
 "Saints & Fathers": "Saints et Pères",
@@ -437,6 +440,7 @@ const D = {
 "Language": "Langue"
 },
 "pt": {
+"Look at the picture on the TV.": "Olhe para a imagem na TV.",
 "Greek Orthodox trivia night": "Noite de quiz ortodoxo",
 "Scripture": "Sagrada Escritura",
 "Saints & Fathers": "Santos e Padres",

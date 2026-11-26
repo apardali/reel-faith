@@ -2,7 +2,9 @@
 
 Greek Orthodox trivia for Sunday schools, youth groups and families. The TV shows the questions; everyone answers on their phone with a 4-letter room code. No accounts, no database. Everything runs from this GitHub repo.
 
-It's the sister game of [Reel Smart](https://github.com/apardali/reel-smart) and shares its engine. 163 questions across five topics (Scripture, Saints & Fathers, Liturgy & Feasts, Church History, Icons & Traditions), each rated Easy, Medium or Hard.
+It's the sister game of [Reel Smart](https://github.com/apardali/reel-smart) and shares its engine. 148 questions across five topics (Scripture, Saints & Fathers, Liturgy & Feasts, Church History, Icons & Traditions), each rated Easy, Medium or Hard. 18 of them show an icon or photo on the TV.
+
+**Question pictures** come from Wikimedia Commons and load straight from there: historic icons (public domain) and a few free-licence photos, each credited under the picture. To add one, give a row in `js/questions.js` a fifth item `{img: "Commons file name.jpg", cr: "credit line"}`, or add the question text to `IMG_FOR`. Use only public-domain or freely licensed files and copy the author and licence into the credit.
 
 **Play:** <https://apardali.github.io/reel-faith/>
 **Admin:** <https://apardali.github.io/reel-faith/admin.html>

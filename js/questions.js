@@ -1,5 +1,5 @@
 // Built-in question bank for Reel Faith.
-// Each row: [topic, level, question, [correct, wrong, wrong, wrong], emoji?]. The correct answer is listed first; options are shuffled in play.
+// Each row: [topic, level, question, [correct, wrong, wrong, wrong], emoji or {img, cr}?]. img = a Wikimedia Commons file name, cr = its credit line. The correct answer is listed first; options are shuffled in play.
 // Topics match the category buttons on the setup screen. Levels: easy, med, hard (shown as Easy / Medium / Hard).
 export const TOPICS = { scripture: "Scripture", saints: "Saints & Fathers", liturgy: "Liturgy & Feasts", history: "Church History", icons: "Icons & Traditions" };
 const LV = { easy: 1, med: 2, hard: 3 };
@@ -149,5 +149,31 @@ const RAW = [
  ["history","hard","Which emperor built today's Hagia Sophia?",["Justinian","Constantine","Theodosius","Basil II"]],
  ["history","hard","The Meteora monasteries sit on rock pillars in which region of Greece?",["Thessaly","Crete","Peloponnese","Thrace"]],
  ["history","hard","By tradition, Bishop Germanos raised the banner of the 1821 revolution at which monastery?",["Agia Lavra","Great Lavra","Kykkos","Meteora"]]
+,
+ ["icons","easy","Which feast does this icon show?",["The Nativity of Christ","Theophany","The Annunciation","The Presentation in the Temple"],{img:"Nativity (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon by Andrei Rublev's circle, 15th c. · public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["Theophany","The Transfiguration","Pentecost","The Nativity of Christ"],{img:"Baptism (15th c., Annunciation Cathedral in Moscow).jpg",cr:"Icon, Annunciation Cathedral, Moscow, 15th c. · public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["The Transfiguration","The Ascension","Theophany","Pentecost"],{img:"Transfiguration (Annunciation Cathedral, Kremlin).jpg",cr:"Icon, Annunciation Cathedral, Moscow, 1405 · public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["Pentecost","The Ascension","The Dormition","Palm Sunday"],{img:"The Descent of the Holy Spirit Novgorod.jpeg",cr:"Icon, Novgorod, c. 1500 · public domain · Wikimedia Commons"}],
+ ["icons","med","Which feast does this icon show?",["Pascha (the Resurrection)","The Ascension","The Transfiguration","Holy Friday"],{img:"Chora Church Constantinople 2007 013.jpg",cr:"Anastasis fresco, Chora Church · photo: Gryffindor, public domain · Wikimedia Commons"}],
+ ["icons","hard","Which feast does this icon show?",["The Dormition of the Theotokos","The Nativity of the Theotokos","The Annunciation","The Entry of the Theotokos"],{img:"Theofanus uspenie.jpg",cr:"Icon by Theophanes the Greek, c. 1392 · public domain · Wikimedia Commons"}],
+ ["icons","med","This famous icon shows three angels visiting Abraham. What does it represent?",["The Holy Trinity","The Annunciation","The Three Holy Hierarchs","The Three Wise Men"],{img:"Andrey Rublev - Св. Троица - Google Art Project.jpg",cr:"Trinity icon by Andrei Rublev, c. 1410 · public domain · Wikimedia Commons"}]
 ];
-export const Q = RAW.map(([t, d, q, o, e]) => ({ lv: LV[d], c: e ? "Emoji Bible story" : TOPICS[t], t, q, o, a: 0, ...(e ? { e } : {}) }));
+// Pictures for existing questions: question text → [Wikimedia Commons file, credit]
+export const IMG_FOR = {
+ "Which saint is shown on horseback slaying a dragon?": ["S.George (Novgorod, mid. 14 c, GTG).jpg", "Icon, Novgorod, 14th c. · public domain · Wikimedia Commons"],
+ "Which saint secretly gave gifts and is the patron of children and sailors?": ["Nikola from 1294.jpg", "Icon by Aleksa Petrov, 1294 · public domain · Wikimedia Commons"],
+ "\"Pantocrator\" means…": ["Spas vsederzhitel sinay (cropped).jpg", "Sinai icon, 6th c. · public domain · Wikimedia Commons"],
+ "Hagia Sophia means…": ["Istanbul asv2020-02 img45 Hagia Sophia.jpg", "Photo: A.Savin · Free Art License · Wikimedia Commons"],
+ "Which emperor built today's Hagia Sophia?": ["Istanbul asv2020-02 img45 Hagia Sophia.jpg", "Photo: A.Savin · Free Art License · Wikimedia Commons"],
+ "The Meteora monasteries sit on rock pillars in which region of Greece?": ["Iera Moni Varlaam (Varlaam Monastery) in Meteora.jpg", "Photo: Konstantinos Doudouliakis · CC BY-SA 4.0 · Wikimedia Commons"],
+ "Mount Athos, home to many monasteries, is known as…": ["07Athos Simon Petrus02.jpg", "Simonopetra Monastery · photo: Fingalo · CC BY-SA 2.0 DE · Wikimedia Commons"],
+ "Which saint wrote \"The Ladder of Divine Ascent\"?": ["The Ladder of Divine Ascent Monastery of St Catherine Sinai 12th century.jpg", "Icon, St Catherine's Monastery, Sinai, 12th c. · public domain · Wikimedia Commons"],
+ "On which island did St John write the Book of Revelation?": ["Holy Apostle and Evangelist John the Theologian. Icon. Greece, 1500. Monastery of St. John the Theologian on the island of Patmos.jpg", "Icon of St John the Theologian, c. 1500 · public domain · Wikimedia Commons"],
+ "What does \"Theotokos\", a name for the Virgin Mary, mean?": ["Feofan Donskaja.jpg", "Our Lady of the Don, Theophanes the Greek, c. 1390 · public domain · Wikimedia Commons"],
+ "Which of these is NOT one of the Three Holy Hierarchs?": ["Three Holy Hierarchs (Novgorod).jpg", "Icon of the Three Holy Hierarchs, Novgorod · public domain · Wikimedia Commons"]
+};
+export const Q = RAW.map(([t, d, q, o, x]) => {
+  const pic = (x && typeof x === "object") ? x : IMG_FOR[q] ? { img: IMG_FOR[q][0], cr: IMG_FOR[q][1] } : null;
+  const e = typeof x === "string" ? x : null;
+  return { lv: LV[d], c: e ? "Emoji Bible story" : TOPICS[t], t, q, o, a: 0, ...(e ? { e } : {}), ...(pic ? { img: pic.img, cr: pic.cr } : {}) };
+});
