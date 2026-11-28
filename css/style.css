@@ -749,3 +749,6 @@ body:not(.ingame) .marquee h1.logo,body:not(.ingame) .marquee p{position:absolut
  .pic img{max-height:calc(100vh - var(--u)*50)}
  .pic figcaption{font-size:calc(var(--u)*1.4)}
 }
+
+/* "That clip wouldn't play" note on the TV */
+#play .clipnote{margin:0 0 .6em;padding:.45em .9em;border-radius:12px;background:rgba(0,0,0,.35);color:#ffd77a;font-weight:600;text-align:center}
